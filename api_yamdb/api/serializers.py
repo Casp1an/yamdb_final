@@ -1,14 +1,10 @@
 from django.core.exceptions import ValidationError
 from django.shortcuts import get_object_or_404
 from rest_framework import serializers
-
-from reviews.models import (
-    Category, Comment, Genre, Review, Title, User,
-    EMAIL_LENGTH, USERNAME_LENGTH, CONFIRMATION_CODE_LENGTH
-)
-from reviews.validators import (
-    validate_username, validate_year
-)
+from reviews.models import (CONFIRMATION_CODE_LENGTH, EMAIL_LENGTH,
+                            USERNAME_LENGTH, Category, Comment, Genre, Review,
+                            Title, User)
+from reviews.validators import validate_username, validate_year
 
 
 class UserSerializer(serializers.ModelSerializer):

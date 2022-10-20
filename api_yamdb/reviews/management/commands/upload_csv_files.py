@@ -1,9 +1,9 @@
 import csv
 
 from django.core.management.base import BaseCommand
+from reviews.models import Category, Comment, Genre, Review, Title, User
 
 from api_yamdb import settings
-from reviews.models import Category, Comment, Genre, Review, Title, User
 
 TABLES = (
     (User, 'users.csv'),
