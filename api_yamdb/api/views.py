@@ -1,32 +1,28 @@
 import random
 
-from django.db import IntegrityError
+from api.filters import TitleFilter
 from django.core.mail import EmailMessage
+from django.db import IntegrityError
 from django.db.models import Avg
 from django.shortcuts import get_object_or_404
 from django_filters.rest_framework import DjangoFilterBackend
-from rest_framework import status, filters, mixins, viewsets
+from rest_framework import filters, mixins, status, viewsets
 from rest_framework.decorators import action, api_view, permission_classes
 from rest_framework.filters import SearchFilter
 from rest_framework.permissions import AllowAny, IsAuthenticated
 from rest_framework.response import Response
 from rest_framework.viewsets import ModelViewSet
 from rest_framework_simplejwt.tokens import AccessToken
+from reviews.models import (CONFIRMATION_CODE_LENGTH, Category, Genre, Review,
+                            Title, User)
 
-from .permissions import (
-    IsAdmin, IsAdminUserOrReadOnly, IsAuthorModerAdminOrReadOnly
-)
-from .serializers import (
-    CategorySerializer, CommentsSerializer, GenreSerializer,
-    ReviewsSerializer, TitleReadSerializer,
-    TitlesSerializer, TitleWriteSerializer, TokenSerializer,
-    UserAuthSerializers, UserSerializer
-)
-from api.filters import TitleFilter
-from reviews.models import (
-    Category, Genre, Review, Title, User,
-    CONFIRMATION_CODE_LENGTH
-)
+from .permissions import (IsAdmin, IsAdminUserOrReadOnly,
+                          IsAuthorModerAdminOrReadOnly)
+from .serializers import (CategorySerializer, CommentsSerializer,
+                          GenreSerializer, ReviewsSerializer,
+                          TitleReadSerializer, TitlesSerializer,
+                          TitleWriteSerializer, TokenSerializer,
+                          UserAuthSerializers, UserSerializer)
 
 
 class UserViewSet(ModelViewSet):
