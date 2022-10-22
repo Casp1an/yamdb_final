@@ -40,8 +40,8 @@ jobs:
         uses: docker/build-push-action@v2 
         with:
           push: true
-          tags: casp1an/3536dc4c7b4f:latest 
-
+          context: ./api_yamdb/
+          tags: Casp1an/yamdb_final:latest
   deploy:
     runs-on: ubuntu-latest
     needs: build_and_push_to_docker_hub
