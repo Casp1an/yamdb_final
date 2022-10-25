@@ -32,10 +32,10 @@ docker container ls
 В ответ получаем примерно следующее
 
 CONTAINER ID   IMAGE                     COMMAND                  CREATED         STATUS         PORTS                    NAMES
-ab8cb8741e4a   nginx:1.19.0              "/docker-entrypoint.…"   7 minutes ago   Up 2 minutes   0.0.0.0:80->80/tcp       mamontovdn_nginx_1
-f78cc8f246fb   mamontovdn/yamdb:latest   "/bin/sh -c 'gunicor…"   7 minutes ago   Up 2 minutes   0.0.0.0:8000->8000/tcp   mamontovdn_web_1
-a68243a0a5e2   postgres:12.4             "docker-entrypoint.s…"   7 minutes ago   Up 2 minutes   5432/tcp                 mamontovdn_db_1
-Нас интересует контейнер mamontovdn_web_1, заходим в него командой
+ab8cb8741e4a   nginx:1.19.0              "/docker-entrypoint.…"   7 minutes ago   Up 2 minutes   0.0.0.0:80->80/tcp       casp1an_nginx_1
+f78cc8f246fb   casp1an/yamdb:latest   "/bin/sh -c 'gunicor…"   7 minutes ago   Up 2 minutes   0.0.0.0:8000->8000/tcp   casp1an_web_1
+a68243a0a5e2   postgres:12.4             "docker-entrypoint.s…"   7 minutes ago   Up 2 minutes   5432/tcp                 casp1an_db_1
+Нас интересует контейнер casp1an_web_1, заходим в него командой
 
 docker exec -it <CONTAINER ID> sh
 И делаем миграцию БД, и сбор статики
@@ -51,4 +51,4 @@ python manage.py loaddata fixtures.json
 
 Автор
 
-Дмитрий Мамонтов - https://github.com/MamontovDN
+Нажмудин Гусейнов - https://github.com/Casp1an
