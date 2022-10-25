@@ -51,4 +51,4 @@ python manage.py loaddata fixtures.json
 
 Автор
 
-Нажмудин Гусейнов - https://github.com/Casp1an
+Casp1an - https://github.com/Casp1an
